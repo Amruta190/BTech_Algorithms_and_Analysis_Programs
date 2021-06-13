@@ -9,7 +9,7 @@ int main()
     printf("Enter names of nodes : ");
     for(i=1;i<=n;i++)
         scanf("%d",&names[i]);
-    printf("Enter cost matrix : ");
+    printf("Enter cost matrix : \n");
     for(i=1;i<=n;i++)
         for(j=1;j<=n;j++)
             scanf("%d",&cost[i][j]);
@@ -24,7 +24,7 @@ int main()
     for(i=1;i<=n;i++)
         visited[i]=0;
     printf("\nEdge\tCost\n");
-    int i,j,min=infinity,k=0,p,q,sum=0,count=0,x;
+    int min=infinity,k=0,p,q,sum=0,count=0,x;
     for(i=1;i<=n;i++)
     {
         for(j=1;j<=n;j++)

@@ -12,12 +12,10 @@ int main()
         scanf("%d",&names[i]);
     printf("Enter cost matrix : \n");
     for(i=1;i<=n;i++)
-        for(j=1;j<=n;j++)
-            scanf("%d",&cost[i][j]);
-    for(i=1;i<=n;i++)
     {
         for(j=1;j<=n;j++)
         {
+            scanf("%d",&cost[i][j]);
             if(i!=j&&cost[i][j]==0)
                 cost[i][j]=infinity;
         }
@@ -77,7 +75,7 @@ int Prim(int k,int l)
         for(k=1;k<=n;k++)
         {
             if(near[k]!=0 && (cost[k][near[k]] > cost[k][x]))
-                near[k]=j;
+                near[k]=x;
         }
     }
     printf("\nEdge\tCost\n");

@@ -61,19 +61,19 @@ void kruskal()
         {
             if(cost[i][j]!=infinity)
             {
-                src[++k]=names[i];
+                src[k]=names[i];
                 des[k]=names[j];
-                wei[k]=cost[i][j];
+                wei[k++]=cost[i][j];
             }
         }
     }
     heap_sort(k);
     printf("After sorting edge weights\n");
     printf("Src   Des   Weight\n");
-    for(i=1;i<=k;i++)
+    for(i=0;i<k;i++)
         printf("%d\t%d\t%d\n",src[i],des[i],wei[i]);
     printf("Edge\tCost\n");
-    i=1;
+    i=0;
     while(count<n)
     {
         int x=find(src[i]);

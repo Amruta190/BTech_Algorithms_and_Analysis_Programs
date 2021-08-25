@@ -37,7 +37,7 @@ int main()
             T[i][j] = -1;
         }
     }
-    Knapsack(n, m);
+    int profit=Knapsack(n, m);
     int x[n];
     int y = m;
     for (int i = n; i > 0; i--)
@@ -60,6 +60,7 @@ int main()
         printf("\n");
     }
     printf("Maximum profit is : %d\n",T[n][m]);
+    printf("Maximum profit is : %d\n",profit);
     printf("Optimal solution x[i] values : ");
     for (int i = 1; i <= n; i++)
         printf("%d ", x[i]);

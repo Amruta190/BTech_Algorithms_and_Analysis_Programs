@@ -36,12 +36,12 @@ int next_permutation(int size)
             scratch = vertex[j];
             vertex[j] = vertex[l];
             vertex[l] = scratch;
-            k = (size-1 - j) / 2; 
+            k = (size - 1 - j) / 2;
             for (i = 0; i < k; i++)
             {
                 scratch = vertex[j + 1 + i];
-                vertex[j + 1 + i] = vertex[size -1- i];
-                vertex[size -1- i] = scratch;
+                vertex[j + 1 + i] = vertex[size - 1 - i];
+                vertex[size - 1 - i] = scratch;
             }
             return 1;
         }
@@ -52,8 +52,8 @@ int travellingSalesmanProblem(int graph[][V], int s)
 {
     int j = 0;
     int visited[V];
-    for(int i=0;i<V;i++)
-        visited[i]=0;
+    for (int i = 0; i < V; i++)
+        visited[i] = 0;
     for (int i = 0; i < V; i++)
     {
         if (i != s)
@@ -70,33 +70,33 @@ int travellingSalesmanProblem(int graph[][V], int s)
             k = vertex[i];
         }
         current_pathweight += graph[k][s];
-        if(min_path>current_pathweight)    
+        if (min_path > current_pathweight)
         {
-            for(int i=0;i<j;i++)
-                visited[i]=vertex[i];
+            for (int i = 0; i < j; i++)
+                visited[i] = vertex[i];
         }
         min_path = min(min_path, current_pathweight);
-        
+
     } while (next_permutation(j));
-    printf("Path : %d-",s);
-    for(int i=0;i<j;i++)
-        printf("%d-",visited[i]);
-    printf("%d\n",s);
-	return min_path;
+    printf("Path : %d-", s);
+    for (int i = 0; i < j; i++)
+        printf("%d-", visited[i]);
+    printf("%d\n", s);
+    return min_path;
 }
 int main()
 {
     // int graph[][V] = { { 0, 10, 15, 20 },
-	// 				{ 10, 0, 35, 25 },
-	// 				{ 15, 35, 0, 30 },
-	// 				{ 20, 25, 30, 0 } };
+    // 				{ 10, 0, 35, 25 },
+    // 				{ 15, 35, 0, 30 },
+    // 				{ 20, 25, 30, 0 } };
     int graph[V][V] = {{0, 10, 18, 40, 20},
                        {10, 0, 35, 15, 12},
                        {18, 35, 0, 25, 25},
                        {40, 15, 25, 0, 30},
                        {20, 13, 25, 30, 0}};
-    int s=0;
-    int ans=travellingSalesmanProblem(graph, s);
-    printf("%d",ans);
+    int s = 0;
+    int ans = travellingSalesmanProblem(graph, s);
+    printf("%d", ans);
     return 0;
 }
